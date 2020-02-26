@@ -1,0 +1,37 @@
+1.Description:
+The program established communication between one Arduino and another Arduino, so that users can chat on the terminals. For this part of the assignment, the exchange of public keys can be done automatically. The handshake process will be done prior to the exchange or public keys over serial link. Encrypting and Decrypting all characters by the shared secret key which is built by Diffie-Hellman. The improvement of security of the encryption have been done by encrypting each character with a different key.
+
+2.Acknowledgement:
+
+*The submitted code was based on the sample code in Zac's Google Drive and lectures.
+To be specific, the powModFast function was copied from the google drive’s code. Also, we replaced some codes of part one by the standard part one solution. Further, the functions uint32_to_serial3, uint32_from_serial3, wait_on_serial3, as well as next_key come from the description of the assignment 1.
+Links: https://drive.google.com/drive/folders/0BzukoWTLryYpRE13WmI2OEliNzA (google drive)
+       https://eclass.srv.ualberta.ca/course/view.php?id=38222 (part 1 solution on eclass)
+
+3.Accessories:
+* Arduino Mega Board (AMG) * 2;
+* different color wires * 5;
+
+4.Wiring instructions:
+ Arduino2 pin 13 <--> Arduino2 GND;
+ Arduino1 pin TX3 14 <--> Arduino2 pin RX3 15;
+ Arduino2 pin TX3 14 <--> Arduino1 pin RX3 15;
+ Arduino1 pin 13 <—> Resistor <—> Arduino1 5V pin
+
+5.How to run:
+(a) plug and wire all pins correctly on the Arduino Mega Board.
+(b) open VM WARE Workstation.
+(c) use USB cables to connect the boards and computers.
+(d) make upload file in the terminal, and make sure there is no error.
+(e) turn on the serial monitor on both computer.
+(f) hand shake and exchange the public keys automatically
+(g) begin to chat when the display shows lets begin to chat
+
+6.Warning & Assumptions:
+- sometimes the program does not work properly, so please make upload again.
+- the program would take some time to generate the public keys.
+- make sure the wires are connected properly; the TXs should link with RXs.
+- the program will read the analogpin 13 to decide act as either a server or a client
+- after the server received the request from client, the program will move to the dataexchange state
+- when user press backspace button, the typed character will not be deleted.
+- the buffer of the Arduino Mega Board sometimes stored a bunch of strange characters which were not inputed by user, so we used a function to collect those garbage messages.
